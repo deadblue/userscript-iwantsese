@@ -5,8 +5,8 @@
 // @author       Tomo Kunagisa
 // @description  I want sese, let me sese.
 //
-// @updateURL    https://newbie.town/tools/i-want-sese.user.js
-// @downloadURL  https://newbie.town/tools/i-want-sese.user.js
+// @updateURL    https://github.com/deadblue/userscript-iwantsese/raw/master/i-want-sese.user.js
+// @downloadURL  https://github.com/deadblue/userscript-iwantsese/raw/master/i-want-sese.user.js
 //
 // @match  *://fotokiz.com/*
 // @match  *://imgbaron.com/*
@@ -26,7 +26,7 @@
 // @match  *://imgtaxi.com/*
 // @match  *://pig69.com/*
 //
-// @grant        none
+// @grant  none
 // ==/UserScript==
 
 'use strict';
