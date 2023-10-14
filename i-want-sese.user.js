@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         IWantSeSe
 // @namespace    http://tampermonkey.net/
-// @version      1.1.3
+// @version      1.1.4
 // @author       Tomo Kunagisa
 // @description  I want sese, let me sese.
 //
@@ -21,9 +21,12 @@
 // @match  *://pixmela.online/*
 // @match  *://premalo.com/*
 // @match  *://silverpic.com/*
+// @match  *://imagetwist.com/*
 // @match  *://imgadult.com/*
 // @match  *://imgdrive.net/*
 // @match  *://imgtaxi.com/*
+// @match  *://ai18.pics/*
+// @match  *://javball.com/*
 // @match  *://pig69.com/*
 //
 // @grant  none
@@ -96,9 +99,7 @@ function handler_type3() {
 function handler_type4() {
     const img = document.querySelector('div.fileviewer-file img');
     if(img !== null) {
-        let imageUrl = img.src;
-        imageUrl = imageUrl.substring(0, imageUrl.indexOf('?'));
-        window.open(imageUrl, '_self');
+        window.open(img.src, '_self');
     }
 }
 
@@ -116,6 +117,7 @@ function handler_type4() {
         ['pics4you.net', handler_type1],
         ['premalo.com', handler_type1],
         ['silverpic.com', handler_type1],
+        ['imagetwist.com', handler_type1],
 
         ['imgadult.com', handler_type2],
         ['imgdrive.net', handler_type2],
@@ -123,6 +125,8 @@ function handler_type4() {
 
         ['pixmela.online', handler_type3],
 
+        ['ai18.pics', handler_type4],
+        ['javball.com', handler_type4],
         ['pig69.com', handler_type4],
     ]);
     const handler = handlerMap.get(location.host);
@@ -130,4 +134,3 @@ function handler_type4() {
         handler();
     }
 })();
-
