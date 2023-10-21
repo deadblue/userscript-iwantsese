@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         IWantSeSe
 // @namespace    http://tampermonkey.net/
-// @version      1.1.4
+// @version      1.1.5
 // @author       Tomo Kunagisa
 // @description  I want sese, let me sese.
 //
