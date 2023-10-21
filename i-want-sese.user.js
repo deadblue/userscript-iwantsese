@@ -26,8 +26,11 @@
 // @match  *://imgdrive.net/*
 // @match  *://imgtaxi.com/*
 // @match  *://ai18.pics/*
+// @match  *://idol69.net/*
 // @match  *://javball.com/*
+// @match  *://ovabee.com/*
 // @match  *://pig69.com/*
+// @match  *://porn4f.com/*
 //
 // @grant  none
 // ==/UserScript==
@@ -126,8 +129,11 @@ function handler_type4() {
         ['pixmela.online', handler_type3],
 
         ['ai18.pics', handler_type4],
+        ['idol69.net', handler_type4],
         ['javball.com', handler_type4],
+        ['ovabee.com', handler_type4],
         ['pig69.com', handler_type4],
+        ['porn4f.com', handler_type4]
     ]);
     const handler = handlerMap.get(location.host);
     if(handler !== undefined) {
