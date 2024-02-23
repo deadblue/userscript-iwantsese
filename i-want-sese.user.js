@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         IWantSeSe
 // @namespace    http://tampermonkey.net/
-// @version      1.1.6
+// @version      1.1.7
 // @author       Tomo Kunagisa
 // @description  I want sese, let me sese.
 //
@@ -25,6 +25,7 @@
 // @match  *://imgadult.com/*
 // @match  *://imgbbbx.sbs/*
 // @match  *://imgdrive.net/*
+// @match  *://imgolemn.sbs/*
 // @match  *://imgtaxi.com/*
 // @match  *://ai18.pics/*
 // @match  *://cnpics.org/*
@@ -131,6 +132,7 @@ function handler_type4() {
         ['imgtaxi.com', handler_type2],
 
         ['imgbbbx.sbs', handler_type3],
+        ['imgolemn.sbs', handler_type3],
         ['pixmela.online', handler_type3],
 
         ['ai18.pics', handler_type4],
