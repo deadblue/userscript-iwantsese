@@ -2,8 +2,10 @@ name: Puild Userscript
 
 on:
   push:
-    tags:
-      - '*'
+    branches:
+      - master
+    # tags:
+    #   - '*'
 
 permissions:
   contents: read
