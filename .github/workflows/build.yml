@@ -1,4 +1,4 @@
-name: Puild Userscript
+name: Build Userscript
 
 on:
   push:
