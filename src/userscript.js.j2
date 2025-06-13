@@ -1,0 +1,39 @@
+// ==UserScript==
+// @name         IWantSeSe
+// @version      1.1.8.18
+// @author       Tomo Kunagisa
+// @description  I want sese, let me sese.
+// @icon         data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAA9VJREFUWEfNl2lMVFcUgL83ihahFkGgiCOmoq06BmXRRBuJEjWGhhpqIy6JiqERNHElblVcqdVUjQouiZUqslRTxaax1Uhd4kbRmoo2WsCIyyggCAiCAs9cr0SYyfDeIIGeX3fmnXvOd+5Z3ruKGocBL5ajEAN40TZiRiURM/GKuptvUVjXNn4tvKisVNQ9PGrDyC3jNAsAtV2if+tUN0BtHdwrAWM36NSx9ZB1ARy+Ct8kw7MqcHWCvdPgK3+oVyE1Czo7gF9P6OthP5guAFUFv3Vw46F08JEj+HpAfhGUVr1z6t8LkiOhvx29pAsg4U+YmwYdDDBuADyvgbp6MBjg7wL526EDDDHCqi8gdJD+k9AEuJALIVtBUSBhMkSOeGe8/AV4xkL1K9gRAXNH6XfcoNkswMU8CN0B1bVwcCZMDGjq4McLMOsA9OwGeetbVpw2AdKzYWaSPOaMaAjpbx1dUDxk34ON4bBknHwuelqx4yCsAERu445D/AlZ8cfnwPA+1hYzrsOEXWBQIGUWlFfDyVvw2w0Y5C27JCYYnD9onsYKYNo+OJQF/kZIjYKnlVD8HO6XwN1iyC2E/GLIK4LKl80bN/WAy0vBqbNtPSuA/wrh9xyYHQzJVyDyp6abvV2gjztcyodXdfClH8wLkV2RkgX7L0p9NycY/Rn8MBGMrnYANFategmmNTJyIeKoJw+V65Gb4XwurAyFtWHyvwU/w7bTMi3mzeDxoXYxaLbhgUswPUka2hQOsW+LLWQLZN6G/dNhxvCmUAN7QE6ctnOhoQkg8u++SBo7OQ/GDJDrIevh+n3IXgEBveBJOXgvkamIDobEKa0EcK0AAjZIY+K43Z2hsAK2Z8rK/9xXFmlFNTx8JvUyF8KoT1sJ4Nd/ICzB2lh3Z/ikO/i4wcddwaWLHES+7hARpM+5rhTcNINptXwPpEdBP0/wcYWujtpOzt2BEb5yry3RrAEx6cTEC+oNWcu0nTbWWHEMBhvha4sR3lhHE6AhBbNHwq6p9gHMT4edZyAiELZHyMlqKZoA352A5cfkrBcz3x4Zuw1O/St3TAqEtKgWAHz/Byz9BcL8IEN8uOuQ2npI+wtmJMm2fFNsCpxfLGvCrhSUvYBhG+H2Y9nv401g8gYxksWXUUeDfCc8LgMxxq8WwKlbslUtZaAX5Ky2E0CoF1VATAocuaYjfBsq4pvhaDQE+rQAoGHL2Ttw8DIUlMCDUnhUBuKEbImbMwztDeGDYcow6NKpBTWgFXNNLZRWQkUNiLUQRwc5MfXMCs0u0AJ43+f/g6tZu19O2/l6/hqlcmaoHw3rwwAAAABJRU5ErkJggg==
+//
+// @updateURL    https://newbie.town/tools/i-want-sese.user.js
+// @downloadURL  https://newbie.town/tools/i-want-sese.user.js
+//
+{% for domain in domains %}
+// @match  *://{{ domain }}/*
+{% endfor %}
+//
+// @grant  none
+// ==/UserScript==
+
+'use strict';
+
+{% for h in handlers %}
+const handler_{{h.name}} = () => {{ h.code }};
+{% endfor %}
+
+{% raw %}
+const _handlerMap = new Map([
+{% endraw %}
+{% for h in handlers %}
+{% for d in h.domains %}
+    ['{{ d }}', handler_{{h.name}}],
+{% endfor %}
+{% endfor %}
+{% raw %}
+]);
+
+(function(){
+    const handler = _handlerMap.get(location.hostname);
+    if (handler !== undefined) { handler(); }
+})();
+{% endraw %}
